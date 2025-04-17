@@ -34,6 +34,7 @@ function EmployeeOnboarding(){
     }
   
     }
+    
     return(
        <>
             <div className="row">
@@ -78,15 +79,15 @@ function EmployeeOnboarding(){
                                 </div>
                                 <div className="col-lg-12">
                                     <label htmlFor="inputCity" className="form-label">Profile Pic</label>
-                                    <input type="file" className="form-control" id="inputCity" />
+                                    <input type="file" className="form-control" id="inputCity" disabled={true}/>
                                     <br />
-                                    <button className="btn btn-secondary">Upload</button>
+                                    <button className="btn btn-secondary"disabled={true}>Upload</button>
                                 </div>
                                 <div className="col-lg-12">
                                     <label htmlFor="inputCity" className="form-label">Upload updated CV</label>
-                                    <input type="file" className="form-control" id="inputCity" />
+                                    <input type="file" className="form-control" id="inputCity" disabled={true}/>
                                     <br />
-                                    <button>Upload</button>
+                                    <button className="btn btn-secondary"disabled={true}>Upload</button>
                                 </div>
                                 <div className="col-md-6">
                                     <label htmlFor="inputZip" className="form-label">Username</label>
