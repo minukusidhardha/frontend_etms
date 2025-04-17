@@ -13,7 +13,7 @@ function AssignTask(){
             let header = {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
-            const resp = await axios.get('http://localhost:5000/api/employee/get',
+            const resp = await axios.get('https://backendetms.onrender.com/api/employee/get',
                 {headers : header}
             )
             setEmployees(resp.data)
@@ -23,7 +23,7 @@ function AssignTask(){
             let header = {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
-            const resp = await axios.get('http://localhost:5000/api/task/get',
+            const resp = await axios.get('https://backendetms.onrender.com/api/task/get',
                 {headers : header}
             )
             settasks(resp.data)
@@ -39,7 +39,7 @@ function AssignTask(){
         let header = {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         }
-        let assignapi='http://localhost:5000/api/assign/add'
+        let assignapi='https://backendetms.onrender.com/api/assign/add'
         const responce=await axios.post(assignapi,{
             'eid':empId,
             'tid':taskId

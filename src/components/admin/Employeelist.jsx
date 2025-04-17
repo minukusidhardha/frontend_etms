@@ -8,7 +8,7 @@ function EmployeeList() {
     const [data,setdata]=useState([])
 
 
-    let Employeelistapi='http://localhost:5000/api/employee/get'
+    let Employeelistapi='https://backendetms.onrender.com/api/employee/get'
     const CallingFunction=async()=>{
         try{
             
@@ -34,7 +34,7 @@ function EmployeeList() {
             let header={
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
-            let delapi='http://localhost:5000/api/employee/delete/'+id
+            let delapi='https://backendetms.onrender.com/api/employee/delete/'+id
             let responce=await axios.delete(delapi,{headers:header})
             toast.success('Record Deleted')
             CallingFunction();

@@ -12,7 +12,7 @@ function EmpProfile(){
                 let header = {
                     'Authorization': 'bearer ' + localStorage.getItem('token')
                 }
-                let empapi = 'http://localhost:5000/api/employee/getone'
+                let empapi = 'https://backendetms.onrender.com/api/employee/getone'
                 let responce = await axios.get(empapi, { headers: header })
                 setemployee(responce.data)
                 console.log(responce.data);
@@ -40,7 +40,7 @@ function EmpProfile(){
                 'Authorization' : 'Bearer ' + localStorage.getItem('token'),
                 'Content-Type' : 'multipart/form-data'
             }
-            let profileapi = 'http://localhost:5000/api/employee/uploadcv'
+            let profileapi = 'https://backendetms.onrender.com/api/employee/uploadcv'
             let responce = await axios.post(profileapi,fdata,{ headers: header })
             console.log(responce);
             toast.success('profile uploaded..')
@@ -66,7 +66,7 @@ function EmpProfile(){
                 'Authorization' : 'Bearer ' + localStorage.getItem('token'),
                 'Content-Type' : 'multipart/form-data'
             }
-            let profileapi = 'http://localhost:5000/api/employee/profile'
+            let profileapi = 'https://backendetms.onrender.com/api/employee/profile'
             let responce = await axios.post(profileapi,fdata,{ headers: header })
             toast.success('profile uploaded..')
             console.log(responce);

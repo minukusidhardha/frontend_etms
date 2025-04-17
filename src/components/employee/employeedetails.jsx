@@ -14,7 +14,7 @@ function Employeedetails(){
     useEffect(()=>{
         const details=async()=>{
             try{
-                let detailsapi=`http://localhost:5000/api/task/getdetails/${id}`
+                let detailsapi=`https://backendetms.onrender.com/api/task/getdetails/${id}`
                 let response=await axios.get(detailsapi)
                 setdata(response.data)
                 // console.log(response.data)
@@ -25,7 +25,7 @@ function Employeedetails(){
 
         }
         const Getcomments=async()=>{
-            let getcomapi='http://localhost:5000/api/comment/get'
+            let getcomapi='https://backendetms.onrender.com/api/comment/get'
             try{
                 let response=await axios.get(getcomapi,{'task':id})
                 setcom(response.data)
@@ -45,7 +45,7 @@ function Employeedetails(){
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         }
         try{
-            let comentapi='http://localhost:5000/api/comment/add'
+            let comentapi='https://backendetms.onrender.com/api/comment/add'
             let response=await axios.post(comentapi,{
                 'message':comment,
                 'task':id

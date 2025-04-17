@@ -14,7 +14,7 @@ function AddProject(){
     const Project=async($event)=>{
         try{
         $event.preventDefault();
-        let projectapi='http://localhost:5000/api/project/add'
+        let projectapi='https://backendetms.onrender.com/api/project/add'
         let header={
             'Authorization':'Bearer '+localStorage.getItem('token')
         }

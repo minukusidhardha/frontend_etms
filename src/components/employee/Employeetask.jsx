@@ -13,7 +13,7 @@ function Seetasks(){
     useEffect(()=>{
         const Employeetask=async()=>{
         try{
-            let taskapi='http://localhost:5000/api/task/get'
+            let taskapi='https://backendetms.onrender.com/api/task/get'
             const response=await axios.get(taskapi)
             settask(response.data)
             // console.log(response.data._id)
@@ -28,7 +28,7 @@ function Seetasks(){
 
     },[])
     const Archive=async(task)=>{
-        let archapi='http://localhost:5000/api/task/change/'+task
+        let archapi='https://backendetms.onrender.com/api/task/change/'+task
         try{
             let responce=await axios.put(archapi)
             console.log('done');

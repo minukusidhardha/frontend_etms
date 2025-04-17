@@ -13,7 +13,7 @@ function Addtask(){
     useEffect(()=>{
         const project=async()=>{
         try{
-            let pojectapi='http://localhost:5000/api/project/get?page=1&size=5'
+            let pojectapi='https://backendetms.onrender.com/api/project/get?page=1&size=5'
             let responce=await axios.get(pojectapi)
             setproject(responce.data.data)
             console.log(responce.data.data)
@@ -34,7 +34,7 @@ function Addtask(){
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
             $event.preventDefault();
-            let taskapi = 'http://localhost:5000/api/task/add/' +pid
+            let taskapi = 'https://backendetms.onrender.com/api/task/add/' +pid
             let responce = await axios.post(taskapi, {
                 'title': title,
                 'startDate': startDate,
