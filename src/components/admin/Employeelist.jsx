@@ -3,9 +3,11 @@ import AdminNavbar from "./navbar"
 import { useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
+import './Search.css'
 
 function EmployeeList() {
     const [data,setdata]=useState([])
+    const [search,setsearch]=useState('')
 
 
     let Employeelistapi='https://backendetms.onrender.com/api/employee/get'
@@ -26,7 +28,7 @@ function EmployeeList() {
 
     }
      useEffect(()=>{
-        CallingFunction()
+        CallingFunction();
 
     },[])
     const Delete=async(id)=>{
@@ -41,6 +43,7 @@ function EmployeeList() {
         }
         catch(err){
             toast.error('connot delete record')
+            console.log(err)
         }
     }
     return (
@@ -50,6 +53,10 @@ function EmployeeList() {
             </div>
             <div className="row mt-4">
                 <div className="col-lg-12">
+                    <div className="search-container">
+                    <input className="search-bar" type="text" placeholder="Search"
+                    onChange={($event)=>setsearch($event.target.value)} />
+                    </div>
                     <table className="table">
                         <thead>
                             <tr>
@@ -64,18 +71,20 @@ function EmployeeList() {
                             </tr>
                         </thead>
                         <tbody>{
-                            data.map((emp, index) => (
+                            data.filter((d)=>{
+                                return search.toLowerCase() ==''?d:d.name.toLowerCase().includes(search) 
+                                ||d.jobTitle.toLowerCase().includes(search)
+                            }).map((emp, index) => (
                                 <tr key={index} >
                                     <th scope="row">{index + 1}</th>
                                     <td >
-                                        {/* <div className="circular_image">
-                                            <img src="https://reqres.in/img/faces/7-image.jpg"></img>
-                                        </div> */}
-                                        {(emp.profilePic== null?<div className="circular_image">
+                                    
+                                        {
+                                        (emp.profilePic== null?<div className="circular_image">
                                             <img src="https://reqres.in/img/faces/7-image.jpg"></img>
                                         </div>:
                                         <div className="circular_image">
-                                            <img src={`/profile/${emp.profilePic}`}>{console.log(emp.profilePic)}</img>
+                                            <img src={`/profile/${emp.profilePic}`}></img>
                                         </div>)
                                         
                                         }
