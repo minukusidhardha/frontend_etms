@@ -71,10 +71,12 @@ function EmployeeList() {
                             </tr>
                         </thead>
                         <tbody>{
-                            data.filter((d)=>{
-                                return search.toLowerCase() ==''?d:d.name.toLowerCase().includes(search) 
-                                ||d.jobTitle.toLowerCase().includes(search)
-                            }).map((emp, index) => (
+                            data.filter((d) => {
+                                const s = search.toLowerCase();
+                                return s === ''
+                                  ? d
+                                  : d.name.toLowerCase().includes(s) || d.jobTitle.toLowerCase().includes(s);
+                              }).map((emp, index) => (
                                 <tr key={index} >
                                     <th scope="row">{index + 1}</th>
                                     <td >
